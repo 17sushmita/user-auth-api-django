@@ -4,16 +4,6 @@ Deployed at [https://user-auth-api-django.herokuapp.com/](https://user-auth-api-
 ### [POST] /registration/ :  Creates new User
 This endpoint accepts details like name, username, password, email, phone_number, is_staff, is_active.
 
-Example:
-[POST] : https://user-auth-api-django.herokuapp.com/user/register/
-```
-            {
-              "email": "sush@gmail.com",
-              "username": "sush",
-              "name": "Sushmita",
-              "password": "password@123"
-            }
-```
 
 
 #### Parameters
@@ -29,6 +19,18 @@ Example Model -
                   "is_staff": "false",
                   "is_active": "true"
                 }
+                
+Example:
+[POST] : https://user-auth-api-django.herokuapp.com/user/register/
+```
+            {
+              "email": "sush@gmail.com",
+              "username": "sush",
+              "name": "Sushmita",
+              "password": "password@123"
+            }
+```
+
 #### Responses
 ###### Code
 201
@@ -90,7 +92,7 @@ Example Model -
 
 
 ### [POST] /login/ : Login User
-The user can login with (username or email) + password.  
+The user can login with email + password.  
 The token is valid for 60 days.
 #### Parameters
 ###### Object *required     
@@ -112,7 +114,7 @@ Example:
 
 #### Responses
 ###### Code
-201
+200
 ###### Description
 &nbsp;
 ```
@@ -139,6 +141,20 @@ Example:
 {
     "email": [
         "This field is required."
+    ]
+}
+```
+```
+{
+    "email": [
+        "user with this email already exists."
+    ]
+}
+```
+```
+{
+    "username": [
+        "user with this username already exists."
     ]
 }
 ```

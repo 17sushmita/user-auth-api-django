@@ -6,7 +6,13 @@ from rest_framework.views import APIView
 from .models import User
 from .serializers import LoginSerializer
 from .serializers import RegistrationSerializer
+from django.shortcuts import render
 
+
+def index(request):
+    #return render('index.html')
+    return render(request, 'user_auth/index.html')
+    #return HttpResponse("hi")
 
 class RegistrationAPIView(APIView):
     """
